@@ -21,12 +21,12 @@ if(isset($_POST['submit']))
       if($row['USER_TYPE'] == 'admin')
       {
          $_SESSION['admin_name'] = $row['name'];
-         header('location:admin_page.php');
+         header('location:Admin/Dashboard.php');
       }
       elseif($row['USER_TYPE'] == 'user')
       {
          $_SESSION['user_name'] = $row['name'];
-         header('location:Gruda/index.html');
+         header('location:User/Index.html');
       }
    }
    else
@@ -47,7 +47,7 @@ if(isset($_POST['submit']))
 	<link rel="icon" href="Gruda/img/favicon.png" type="image/png">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="Assets/style.css">
+   <link rel="stylesheet" href="Assets/Style.css">
 
 </head>
 <body>
@@ -55,7 +55,7 @@ if(isset($_POST['submit']))
 <div class="form-container">
 
    <form action="" method="post">
-      <h3>login now</h3>
+      <h3>Login now</h3>
       <?php
       if(isset($error))
       {
@@ -65,8 +65,8 @@ if(isset($_POST['submit']))
          };
       };
       ?>
-      <input type="email" name="email" required placeholder="Enter your email">
-      <input type="password" name="password" required placeholder="Enter your password">
+      <input type="email" name="email" placeholder="Enter your email" maxlength="30" required>
+      <input type="password" name="password"placeholder="Enter your password" maxlength="30" required>
       <input type="submit" name="submit" value="login now" class="form-btn">
       <p>Don't have an account? <a href="Register.php">Register now</a></p>
    </form>
